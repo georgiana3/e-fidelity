@@ -1,4 +1,4 @@
-package efidelity.efidelity;
+package foo;
 
 /**
  * Hello world!

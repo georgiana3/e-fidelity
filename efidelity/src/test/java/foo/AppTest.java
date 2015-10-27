@@ -1,4 +1,4 @@
-package efidelity.efidelity;
+package foo;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
