@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<awbs>
+	<awb>
+		<NumeDestinatar>Popescu Ion</NumeDestinatar>
+		<JudetDestinatar>Bucuresti</JudetDestinatar>
+		<LocalitateDestinatar>Bucuresti</LocalitateDestinatar>
+		<AdresaDestinatar>Calea Giulesti, nr 6-8</AdresaDestinatar>
+		<TelefonDestinatar>021 698 595</TelefonDestinatar>
+	</awb>
+	<awb>
+		<NumeDestinatar>Popescu Ion</NumeDestinatar>
+		<JudetDestinatar>Bucuresti</JudetDestinatar>
+		<LocalitateDestinatar>Bucuresti</LocalitateDestinatar>
+		<AdresaDestinatar>Calea Giulesti, nr 6-8</AdresaDestinatar>
+		<TelefonDestinatar>021 698 595</TelefonDestinatar>
+	</awb>
+</awbs>

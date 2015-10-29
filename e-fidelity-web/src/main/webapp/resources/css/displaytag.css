@@ -1,0 +1,25 @@
+th.sorted a,th.sortable a {
+	display: block;
+	width: 100%;
+}
+
+th.sortable,th.sorted {
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+th.sortable {
+	background-image: url(../img/displaytag/arrow_off.png);
+}
+
+th.order1 {
+	background-image: url(../img/displaytag/arrow_down.png);
+}
+
+th.order2 {
+	background-image: url(../img/displaytag/arrow_up.png);
+}
+
+.pagelinks {
+	font-size: 14px !important;
+}

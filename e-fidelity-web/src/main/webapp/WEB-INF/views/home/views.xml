@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<definition name="home/login" extends="default">
+		<!-- <put-attribute name="header" value="" type="string"></put-attribute> -->
+		<put-attribute name="body" value="/WEB-INF/views/home/login.jsp"></put-attribute>
+		<!-- <put-attribute name="footer" value="" type="string"></put-attribute> -->
+	</definition>
+
+	<definition name="home/home" extends="default">
+		<put-attribute name="body" value="/WEB-INF/views/home/home.jsp"></put-attribute>
+		<put-attribute name="footer" value="" type="string"></put-attribute>
+	</definition>
+	<definition name="homeNotSignedIn" extends="default">
+		<!-- <put-attribute name="header" value="" type="string"></put-attribute> -->
+		<put-attribute name="body"
+			value="/WEB-INF/views/home/homeNotSignedIn.jsp"></put-attribute>
+	</definition>
+
+	<definition name="homeSignedIn" extends="default">
+		<put-attribute name="body"
+			value="/WEB-INF/views/home/homeSignedIn.jsp"></put-attribute>
+	</definition>
+	<definition name="cod-postal" extends="default">
+		<put-attribute name="body" value="/WEB-INF/views/home/cod-postal.jsp"></put-attribute>
+	</definition>
+	<definition name="raport" extends="default">
+		<put-attribute name="body" value="/WEB-INF/views/home/raport.jsp"></put-attribute>
+	</definition>
+	<definition name="raportComplex" extends="default">
+		<put-attribute name="body"
+			value="/WEB-INF/views/home/raport-complex.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="raportDfmt" extends="default">
+		<put-attribute name="body"
+			value="/WEB-INF/views/home/raport-dfmt.jsp"></put-attribute>
+	</definition>
+
+
+	<!-- Pagina cu applet-ul -->
+	<definition name="applet" extends="default">
+		<put-attribute name="body" value="/WEB-INF/views/home/applet.jsp"></put-attribute>
+	</definition>
+
+	<definition name="pre-applet" extends="default">
+		<put-attribute name="body" value="/WEB-INF/views/home/pre-applet.jsp"></put-attribute>
+	</definition>
+
+	<!-- FAQ -->
+	<definition name="faq" extends="default">
+		<!-- <put-attribute name="header" value="" type="string"></put-attribute> -->
+		<put-attribute name="body" value="/WEB-INF/views/home/faq.jsp"></put-attribute>
+	</definition>
+
+
+</tiles-definitions>

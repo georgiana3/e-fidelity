@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>ro</groupId>
+		<artifactId>e-fidelity-parent</artifactId>
+		<version>1.3.7-SNAPSHOT</version>
+		<relativePath>../e-fidelity-parent</relativePath>
+	</parent>
+	<artifactId>e-fidelity-war</artifactId>
+	<packaging>war</packaging>
+	<name>Modulul de deployment pentru aplicatia E-fidelity</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>ro</groupId>
+			<artifactId>e-fidelity-impl</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ro</groupId>
+			<artifactId>e-fidelity-web</artifactId>
+			<version>${project.parent.version}</version>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>${dev.build.finalName}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<overlays>
+						<overlay>
+							<groupId>ro</groupId>
+							<artifactId>e-fidelity-web</artifactId>
+						</overlay>
+						<overlay />
+					</overlays>
+					<ignoreWebxml>false</ignoreWebxml>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

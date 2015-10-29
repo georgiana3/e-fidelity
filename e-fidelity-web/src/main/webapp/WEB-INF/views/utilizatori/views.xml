@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<definition name="utilizatori/list" extends="default">
+		<put-attribute name="body"
+			value="/WEB-INF/views/utilizatori/list.jsp"></put-attribute>
+	</definition>
+
+	<definition name="utilizatori/new" extends="default">
+		<!-- <put-attribute name="header" value="" type="string"></put-attribute> -->
+		<put-attribute name="body" value="/WEB-INF/views/utilizatori/new.jsp"></put-attribute>
+	</definition>
+	<definition name="utilizatori/edit" extends="default">
+		<put-attribute name="body"
+			value="/WEB-INF/views/utilizatori/edit.jsp"></put-attribute>
+	</definition>
+	<definition name="utilizatori/admin/edit" extends="default">
+		<put-attribute name="body"
+			value="/WEB-INF/views/utilizatori/edit-admin.jsp"></put-attribute>
+	</definition>
+
+	<definition name="utilizatori/forgot-password" extends="default">
+		<put-attribute name="body"
+			value="/WEB-INF/views/utilizatori/forgot-password.jsp"></put-attribute>
+	</definition>
+	<definition name="utilizatori/renew-password" extends="default">
+		<put-attribute name="body"
+			value="/WEB-INF/views/utilizatori/renew-password.jsp"></put-attribute>
+	</definition>
+	<definition name="utilizatori/view" extends="default">
+		<put-attribute name="body"
+			value="/WEB-INF/views/utilizatori/view.jsp"></put-attribute>
+	</definition>
+</tiles-definitions>

@@ -1,0 +1,50 @@
+<urlrewrite default-match-type="wildcard">
+	<!-- Exceptions -->
+	<rule>
+		<from>/favicon.ico</from>
+		<to last="true">/favicon.ico</to>
+	</rule>
+	<rule>
+		<from>/site</from>
+		<to last="true">/site/</to>
+	</rule>
+	<rule>
+		<from>/site/**</from>
+		<to last="true">/site/$1</to>
+	</rule>
+	<rule>
+		<from>/resources/**</from>
+		<to last="true">/resources/$1</to>
+	</rule>
+	<rule>
+		<from>/WEB-INF/**</from>
+		<to last="true">/WEB-INF/$1</to>
+	</rule>
+	<rule>
+		<from>/jcaptcha.jpg</from>
+		<to last="true">/jcaptcha.jpg</to>
+	</rule>
+
+	<!-- API root -->
+	<rule>
+		<from>/api</from>
+		<to last="true">/api/</to>
+	</rule>
+	<rule>
+		<from>/api/**</from>
+		<to last="true">/api/$1</to>
+	</rule>
+
+	<!-- Site root -->
+	<rule>
+		<from>/**</from>
+		<to last="true">/site/$1</to>
+	</rule>
+
+	<!-- Removes the /site/ prefix from href of links. NOTE: This only works 
+		if you use the jstl url tag or spring url tag. -->
+	<outbound-rule>
+		<from>/site/**</from>
+		<to>/$1</to>
+	</outbound-rule>
+</urlrewrite>

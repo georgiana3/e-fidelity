@@ -1,0 +1,91 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+http://www.springframework.org/schema/security
+http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+	<!-- VERY IMPORTANT: The Spring Security filter is called only on the requests 
+		forwarded by UrlRewriteFilter (which should forward all calls to this application, 
+		site and API, for full security). Therefore, all URL configuration in this 
+		file is based on the URLs obtained by performing the forwarding done by UrlRewriteFilter 
+		before reaching the Spring Security Filter. -->
+
+	<!-- Global security settings -->
+
+	<security:global-method-security
+		pre-post-annotations="enabled" />
+
+	<!-- Webservice (API) security settings -->
+
+	<security:http pattern="/api/**" create-session="stateless"
+		use-expressions="true" authentication-manager-ref="authManager">
+		<security:http-basic />
+		<security:intercept-url pattern="/api/**"
+			access="isAuthenticated()" />
+	</security:http>
+
+	<!-- <security:authentication-manager id="webserviceAuthManager"> <security:authentication-provider> 
+		<security:user-service> <security:user name="andreisrl" password="1234" authorities="PERSOANA_JURIDICA" 
+		/> </security:user-service> </security:authentication-provider> </security:authentication-manager> -->
+
+	<!-- Site security settings -->
+
+	<security:http pattern="/site/**" auto-config="true"
+		disable-url-rewriting="true" use-expressions="true"
+		authentication-manager-ref="authManager">
+		<security:form-login login-page="/site/login"
+			login-processing-url="/site/j_spring_security_check"
+			authentication-failure-url="/site/login?error=1" />
+		<security:logout logout-url="/site/logout" />
+		<!-- <security:remember-me services-ref="rememberMeServices" key="remember-me-key" 
+			/> -->
+
+		<security:intercept-url pattern="/site/"
+			access="permitAll" />
+		<security:intercept-url pattern="/site/utilizatori/new"
+			access="!isAuthenticated()" />
+		<security:intercept-url pattern="/site/login"
+			access="!isAuthenticated()" />
+		<security:intercept-url pattern="/site/utilizatori"
+			access="!isAuthenticated()" method="POST" />
+		<security:intercept-url pattern="/site/utilizatori/renew-password"
+			access="permitAll" />
+		<security:intercept-url pattern="/site/utilizatori/forgot-password"
+			access="permitAll" />
+		<security:intercept-url pattern="/site/utilizatori/confirm"
+			access="permitAll" />
+		<security:intercept-url pattern="/site/ajax/getLocalitati"
+			access="permitAll" />
+		<security:intercept-url pattern="/site/ajax/getLocalitatiByJudet"
+			access="permitAll" />
+		<security:intercept-url pattern="/site/faq"
+			access="permitAll" />
+		<security:intercept-url pattern="/site/clear-awb-cache"
+			access="permitAll" />
+
+		<security:intercept-url pattern="/site/manager/**"
+			access="hasAnyRole('PROGRAMMER','POSTA','POSTA_COMERCIAL')" />
+
+		<security:intercept-url pattern="/site/utilizatori/**"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/site/**"
+			access="isAuthenticated()" />
+
+		<security:custom-filter ref="captchaCaptureFilter"
+			before="FORM_LOGIN_FILTER" />
+	</security:http>
+
+	<!-- Catch all remaining requests - No security -->
+	<security:http security="none" />
+
+	<security:authentication-manager id="authManager"
+		erase-credentials="true">
+		<security:authentication-provider
+			ref="customAuthenticationProvider">
+
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+</beans>
